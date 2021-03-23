@@ -1,1 +1,6 @@
-<p>base-attributes works!</p>
+<label>Base Attributes: </label>
+<div *ngFor="let attribute of baseAttributes">
+    <label>{{ attribute.type }}: </label>
+    <input type="number" min="0" [(ngModel)]="attribute.value">
+    <app-skills [baseAttribute]="attribute"></app-skills>
+</div>

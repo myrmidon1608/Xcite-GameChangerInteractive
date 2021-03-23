@@ -1,4 +1,4 @@
-import { SkillType } from "./skill.model";
+import { Skill, SkillType } from "./skill.model";
 
 export enum BaseAttributeType {
     Strength = 'Strength',
@@ -18,6 +18,7 @@ export class BaseAttribute {
 
     type: BaseAttributeType;
     value: number;
+    private _skills: Skill[] = [];
 
     constructor(type: BaseAttributeType, value?: number) {
         this.type = type;
@@ -26,5 +27,14 @@ export class BaseAttribute {
 
     updateValue(value: number) {
         this.value = value > 0 ? value : BaseAttribute.DEFAULT_VALUE;
+    }
+    
+
+    get skills(): Skill[] {
+        return this._skills;
+    }
+
+    setSkill(skill: Skill): void {
+        this._skills.push(skill);
     }
 }

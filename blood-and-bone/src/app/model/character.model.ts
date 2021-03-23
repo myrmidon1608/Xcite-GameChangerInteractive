@@ -1,10 +1,8 @@
 import { BaseAttribute, BaseAttributeType } from "./base-attribute.model";
-import { Skill } from "./skill.model";
 
 export class Character {
     name: string;
     private _baseAttributes: BaseAttribute[] = [];
-    private _skills: Map<BaseAttributeType, Skill[]> = new Map<BaseAttributeType, Skill[]>();
 
     constructor(name: string) {
         this.name = name;
@@ -20,18 +18,5 @@ export class Character {
 
     addBaseAttribute(type: BaseAttributeType, value?: number): void {
         this._baseAttributes.push(new BaseAttribute(type, value));
-    }
-
-    getSkills(attrType: BaseAttributeType): Skill[] | undefined {
-        return this._skills.get(attrType);
-    }
-
-    setSkill(attrType: BaseAttributeType, skill: Skill): void {
-        let skills = this.getSkills(attrType);
-        if (skills) {
-            skills.push(skill);
-        } else {
-            this._skills.set(attrType, [skill]);
-        }
     }
 }

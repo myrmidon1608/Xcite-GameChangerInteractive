@@ -13,38 +13,16 @@ import { SkillService } from 'src/app/services/skill.service';
 export class CharacterComponent implements OnChanges {
     @Input() character!: Character;
 
-    constructor(
-        private baseAttributeService: BaseAttributeService,
-        private skillService: SkillService
-    ) { }
+    constructor(private baseAttributeService: BaseAttributeService) { }
 
     ngOnChanges (): void {
         console.log(this.character);
         this.baseAttributeService.setBaseAttributes(this.character);
     }
 
-    get baseAttributes(): BaseAttribute[] {
-        return this.character.baseAttributes;
-    }
-
-    getBaseAttributeSkills(attrType: BaseAttributeType): Skill[] | undefined {
-        return this.character.getSkills(attrType);
-    }
-
-    getSkillTypesForBaseAttribute(attr: BaseAttributeType): SkillType[] | undefined {
-        return BaseAttribute.SKILL_MAP.get(attr);
-    }
-
     addBaseAttribute(e: Event) {
         if ((e.target as HTMLSelectElement)?.value) {
             this.baseAttributeService.addBaseAttribute(this.character, (e.target as HTMLSelectElement)?.value as BaseAttributeType);
-        }
-    }
-
-    addSkill(event: Event, attr: BaseAttribute) {
-        let type: string = (event.target as HTMLSelectElement)?.value;
-        if (type as SkillType) {
-            this.skillService.addSkill(this.character, attr.type, type as SkillType);
         }
     }
 }

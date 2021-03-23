@@ -18,16 +18,17 @@ export enum SkillType {
 }
 
 export enum SkillRank {
-    Untrained = "Untrained",
-    Novice = "Novice",
-    Apprentice = "Apprentice",
-    Adept = "Adept",
-    Expert = "Expert",
-    Master = "Master"
+    Untrained,
+    Novice,
+    Apprentice,
+    Adept,
+    Expert,
+    Master
 }
 
 export class Skill {
     static DEFAULT_RANK: SkillRank = SkillRank.Untrained;
+    static MAX_RANK: SkillRank = SkillRank.Master;
     type: SkillType;
     rank: SkillRank;
 

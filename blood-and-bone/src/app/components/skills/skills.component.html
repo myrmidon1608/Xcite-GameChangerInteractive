@@ -1,1 +1,10 @@
-<p>skills works!</p>
+<select (change)="addSkill($event)">
+    <option value=""></option>
+    <option *ngFor="let skillType of getSkillTypesForBaseAttribute(baseAttribute.type)" [value]="skillType">{{ skillType }}</option>
+</select>
+<br>
+<label>Skills: </label>
+<div *ngFor="let skill of baseAttribute.skills">
+    <label>{{ skill.type }}: </label>
+    <input type="number" min="0" [max]="rankLimit" [(ngModel)]="skill.rank">
+</div>
