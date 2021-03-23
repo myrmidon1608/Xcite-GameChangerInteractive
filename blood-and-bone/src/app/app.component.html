@@ -4,7 +4,15 @@
 </div>
 
 <div class="content" role="main">
-    
+    <div *ngFor="let character of characters">
+        <a (click)="selectCharacter(character)"><h4>{{ character.name }}</h4></a>
+    </div>
+    <input type="text" [(ngModel)]="newCharacterName">
+    <button (click)="addCharacter()">+</button>
+    <br>
+    <hr>
+    <br>
+    <app-character *ngIf="selectedCharacter" [character]="selectedCharacter"></app-character>
 
 </div>
 
