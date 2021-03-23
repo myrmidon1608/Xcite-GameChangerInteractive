@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CharacterComponent } from './components/character/character.component';
@@ -14,6 +13,7 @@ import { ExportComponent } from './admin/export/export.component';
 import { FormsModule } from '@angular/forms';
 import { CharacterService } from './services/character.service';
 import { BaseAttributeService } from './services/base-attribute.service';
+import { CombatAttributeService } from './services/combat-attribute.service';
 import { SkillService } from './services/skill.service';
 
 @NgModule({
@@ -36,6 +36,7 @@ import { SkillService } from './services/skill.service';
   providers: [
     CharacterService,
     BaseAttributeService,
+    CombatAttributeService,
     SkillService
   ],
   bootstrap: [AppComponent]

@@ -1,34 +1,23 @@
 import { Injectable } from "@angular/core";
-import { BaseAttributeType } from "../model/base-attribute.model";
+import { BaseAttribute, BaseAttributeType } from "../model/base-attribute.model";
 import { Character } from "../model/character.model";
+import { AttributeService } from "./attribute.service";
 
 @Injectable()
-export class BaseAttributeService {
-    static baseAttributeTypes: BaseAttributeType[] = Object.values(BaseAttributeType);
-    
+export class BaseAttributeService extends AttributeService<BaseAttributeType> {
+    static attributeTypes: BaseAttributeType[] = Object.values(BaseAttributeType);
+
     setBaseAttributes(character: Character): void {
-        for (let idx in BaseAttributeService.baseAttributeTypes) {
-            let type: BaseAttributeType = BaseAttributeService.baseAttributeTypes[idx];
-            if (!this.hasBaseAttribute(character, type)) {
-                this.addBaseAttribute(character, type);
-            }
-        }
+        this.setAttributes(character, BaseAttributeService.attributeTypes);
     }
 
-    hasBaseAttribute(character: Character, type: BaseAttributeType): boolean {
-        return !!character.getBaseAttribute(type);
+    hasAttribute(character: Character, type: BaseAttributeType): boolean {
+        return !!character.baseAttributes.find(it => it.type === type);
     }
 
-    addBaseAttribute(character: Character, type: BaseAttributeType, value?: number): void {
-        if (!this.hasBaseAttribute(character, type)) {
-            character.addBaseAttribute(type, value);
-        }
-    }
-
-    updateBaseAttribute(character: Character, type: BaseAttributeType, value: number): void {
-        let attribute = character.getBaseAttribute(type);
-        if (attribute) {
-            attribute.updateValue(value);
+    addAttribute(character: Character, type: BaseAttributeType, value?: number): void {
+        if (!this.hasAttribute(character, type)) {
+            character.baseAttributes.push(new BaseAttribute(type, value));
         }
     }
 }

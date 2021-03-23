@@ -1,3 +1,4 @@
+import { Attribute } from "./attribute.model";
 import { Skill, SkillType } from "./skill.model";
 
 export enum BaseAttributeType {
@@ -7,7 +8,7 @@ export enum BaseAttributeType {
     Presence = 'Presence'
 }
 
-export class BaseAttribute {
+export class BaseAttribute extends Attribute<BaseAttributeType> {
     static DEFAULT_VALUE: number = 0;
     static SKILL_MAP: Map<BaseAttributeType, SkillType[]> = new Map<BaseAttributeType, SkillType[]>([
         [BaseAttributeType.Strength, [SkillType.Fighting]],
@@ -16,11 +17,10 @@ export class BaseAttribute {
         [BaseAttributeType.Presence, [SkillType.Intimidation, SkillType.Performance, SkillType.Manipulation, SkillType.Insight, SkillType.Power]]
     ]);
 
-    type: BaseAttributeType;
-    value: number;
     private _skills: Skill[] = [];
 
     constructor(type: BaseAttributeType, value?: number) {
+        super();
         this.type = type;
         this.value = value || BaseAttribute.DEFAULT_VALUE;
     }

@@ -1,8 +1,11 @@
+import { Attribute } from "./attribute.model";
 import { BaseAttribute, BaseAttributeType } from "./base-attribute.model";
+import { CombatAttribute } from "./combat-attribute.model";
 
 export class Character {
     name: string;
     private _baseAttributes: BaseAttribute[] = [];
+    private _combatAttributes: CombatAttribute[] = [];
 
     constructor(name: string) {
         this.name = name;
@@ -11,12 +14,8 @@ export class Character {
     get baseAttributes(): BaseAttribute[] {
         return this._baseAttributes;
     }
-    
-    getBaseAttribute(type: BaseAttributeType): BaseAttribute | undefined {
-        return this._baseAttributes.find(it => it.type === type);
-    }
 
-    addBaseAttribute(type: BaseAttributeType, value?: number): void {
-        this._baseAttributes.push(new BaseAttribute(type, value));
+    get combatAttributes(): CombatAttribute[] {
+        return this._combatAttributes;
     }
 }
