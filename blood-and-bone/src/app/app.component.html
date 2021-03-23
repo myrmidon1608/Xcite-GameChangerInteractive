@@ -4,9 +4,12 @@
 </div>
 
 <div class="content" role="main">
-    <div *ngFor="let character of characters">
-        <a (click)="selectCharacter(character)"><h4>{{ character.name }}</h4></a>
-    </div>
+    <p>Characters</p>
+    <ul *ngFor="let character of characters">
+        <li><a (click)="selectCharacter(character)"><h4>{{ character.name }}</h4></a></li>
+    </ul>
+    <br>
+    <label>Add character: </label>
     <input type="text" [(ngModel)]="newCharacterName">
     <button (click)="addCharacter()">+</button>
     <br>

@@ -28,7 +28,7 @@ export class AppComponent implements OnInit {
 
     private loadCharacters(): void {
         // TODO: Load characters from store
-        this.characters = [new Character('Test')];
+        this.characters = [];
     }
 
     selectCharacter(character: Character): void {
