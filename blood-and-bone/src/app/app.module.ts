@@ -13,6 +13,8 @@ import { ImportComponent } from './admin/import/import.component';
 import { ExportComponent } from './admin/export/export.component';
 import { FormsModule } from '@angular/forms';
 import { CharacterService } from './services/character.service';
+import { BaseAttributeService } from './services/base-attribute.service';
+import { SkillService } from './services/skill.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { CharacterService } from './services/character.service';
     AppRoutingModule
   ],
   providers: [
-    CharacterService
+    CharacterService,
+    BaseAttributeService,
+    SkillService
   ],
   bootstrap: [AppComponent]
 })

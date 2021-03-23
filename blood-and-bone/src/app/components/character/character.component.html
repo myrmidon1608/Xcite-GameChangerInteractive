@@ -6,6 +6,14 @@
     <div *ngFor="let attribute of baseAttributes">
         <label>{{ attribute.type }}: </label>
         <input type="number" [(ngModel)]="attribute.value">
+        <select (change)="addSkill($event, attribute)">
+            <option value=""></option>
+            <option *ngFor="let skillType of getSkillTypesForBaseAttribute(attribute.type)" [value]="skillType">{{ skillType }}</option>
+        </select>
+        <br>
+        <label>Skills: </label>
+        <div *ngFor="let skill of getBaseAttributeSkills(attribute.type)">
+            <label>{{ skill.type }}: </label>
+            <input type="number" max="{{ attribute.value }}" [(ngModel)]="skill.rank">
     </div>
-
 </div>
