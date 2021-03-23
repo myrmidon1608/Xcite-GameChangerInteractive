@@ -9,7 +9,6 @@ export enum BaseAttributeType {
 }
 
 export class BaseAttribute extends Attribute<BaseAttributeType> {
-    static DEFAULT_VALUE: number = 0;
     static SKILL_MAP: Map<BaseAttributeType, SkillType[]> = new Map<BaseAttributeType, SkillType[]>([
         [BaseAttributeType.Strength, [SkillType.Fighting]],
         [BaseAttributeType.Dexterity, [SkillType.Fighting, SkillType.Thievery, SkillType.Stealth, SkillType.Archery]],
@@ -22,11 +21,7 @@ export class BaseAttribute extends Attribute<BaseAttributeType> {
     constructor(type: BaseAttributeType, value?: number) {
         super();
         this.type = type;
-        this.value = value || BaseAttribute.DEFAULT_VALUE;
-    }
-
-    updateValue(value: number) {
-        this.value = value > 0 ? value : BaseAttribute.DEFAULT_VALUE;
+        this.value = value || Attribute.DEFAULT_VALUE;
     }
     
 

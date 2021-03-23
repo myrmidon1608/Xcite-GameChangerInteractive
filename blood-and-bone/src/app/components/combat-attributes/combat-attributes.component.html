@@ -1,1 +1,6 @@
-<p>combat-attributes works!</p>
+<label>Combat Attributes: </label>
+<div *ngFor="let attribute of character.combatAttributes">
+    <label>{{ attribute.type }}: </label>
+    <span>{{ getAttributeValue(attribute) }}</span>
+    <input *ngIf="attribute.editable" type="number" min="0" [(ngModel)]="attribute.increment">
+</div>

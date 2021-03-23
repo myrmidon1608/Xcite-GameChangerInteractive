@@ -1,9 +1,9 @@
-import { Attribute } from "./attribute.model";
-import { BaseAttribute, BaseAttributeType } from "./base-attribute.model";
+import { BaseAttribute } from "./base-attribute.model";
 import { CombatAttribute } from "./combat-attribute.model";
 
 export class Character {
     name: string;
+    damage: number = 0;
     private _baseAttributes: BaseAttribute[] = [];
     private _combatAttributes: CombatAttribute[] = [];
 

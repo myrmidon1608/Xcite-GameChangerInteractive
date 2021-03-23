@@ -1,6 +1,14 @@
 <div class="character-list">
-    <label>Name: </label>
-    <input type="text" [(ngModel)]="character.name">
+    <div>
+        <label>Name: </label>
+        <input type="text" [(ngModel)]="character.name">
+    </div>
     <br>
-    <app-base-attributes [baseAttributes]="character.baseAttributes"></app-base-attributes> 
+    <app-base-attributes [baseAttributes]="character.baseAttributes"></app-base-attributes>
+    <br>
+    <app-combat-attributes [character]="character"></app-combat-attributes> 
+    <div>
+        <label>Character damage: </label>
+        <input type="number" min="0" [(ngModel)]="character.damage">
+    </div>
 </div>
