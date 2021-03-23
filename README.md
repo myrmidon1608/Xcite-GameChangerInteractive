@@ -1,8 +1,8 @@
 # TRPG Project
 ## Overview
-The purpose of this project is to show how you develop. Do not focus on being feature complete, but on well structured and robust code execution and data manipulation.
+The purpose of this project is to show how you develop. Do not focus on being feature complete, but on well-structured and robust code execution and data manipulation.
 
-Acceptible frameworks that can be used for this project
+Acceptable frameworks that can be used for this project
 - Pure HTML/CSS/JS (No framework)
 - Angular
 - Mithril
@@ -23,13 +23,13 @@ You are to develop a Single Page Application, according to the specifications li
 		 - Vitality
 			 - Calculated as 3 + Strength
 			 - When characters take damage, they lose 1 vitality. Allow players to mark how many times they have taken damage and have this stat update accordingly
-			 - Damage is persistant
+			 - Damage is persistent
 		 - Evasion: Calculated at 10 + Dexterity
 		 - Armor: Calculated as Evasion
-		 - Alacrity: Calcuated as Dexterity + Mind
+		 - Alacrity: Calculated as Dexterity + Mind
 		 - Tenacity
 			 - Calculated as 1 + Presence
-			 - Characters can use Tenacity and recieve Tenacity, so allow players to increment this value
+			 - Characters can use Tenacity and receive Tenacity, so allow players to increment this value
 		 - Power: Always 0
 			 - Currently Unused
 	 - Characters have a set of skills that they can train
@@ -64,7 +64,7 @@ You are to develop a Single Page Application, according to the specifications li
 				 - Power
 	 - Players can export their character
 	 - Players can import their character
-	 - The UI should be decent and useable
+	 - The UI should be decent and usable
  - Stretch Goals
 	 - Characters can equip armor and weapons
 		 - Armor
