@@ -11,7 +11,8 @@
     <br>
     <label>Add character: </label>
     <input type="text" [(ngModel)]="newCharacterName">
-    <button (click)="addCharacter()">+</button>
+    <button (click)="createCharacter()">+</button>
+    <input type="file" (change)="uploadCharacterFile($event)">
     <br>
     <hr>
     <br>

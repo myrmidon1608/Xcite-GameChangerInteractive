@@ -1,5 +1,10 @@
 <div class="character-list">
     <div>
+        <button (click)="exportCharacter()">Export</button>
+        <a *ngIf="characterDownloadUri" class="btn" title="Download JSON" [href]="characterDownloadUri" [download]="character.name + '.json'">Download</a>
+
+    </div>
+    <div>
         <label>Name: </label>
         <input type="text" [(ngModel)]="character.name">
     </div>

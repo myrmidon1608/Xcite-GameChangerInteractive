@@ -8,8 +8,6 @@ import { CombatAttributesComponent } from './components/combat-attributes/combat
 import { SkillsComponent } from './components/skills/skills.component';
 import { WeaponsComponent } from './components/weapons/weapons.component';
 import { ArmorComponent } from './components/armor/armor.component';
-import { ImportComponent } from './admin/import/import.component';
-import { ExportComponent } from './admin/export/export.component';
 import { FormsModule } from '@angular/forms';
 import { CharacterService } from './services/character.service';
 import { BaseAttributeService } from './services/base-attribute.service';
@@ -24,9 +22,7 @@ import { SkillService } from './services/skill.service';
     CombatAttributesComponent,
     SkillsComponent,
     WeaponsComponent,
-    ArmorComponent,
-    ImportComponent,
-    ExportComponent
+    ArmorComponent
   ],
   imports: [
     BrowserModule,
